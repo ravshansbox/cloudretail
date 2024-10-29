@@ -1,0 +1,18 @@
+{
+  "name": "cloudretail",
+  "workspaces": [
+    "apps/*"
+  ],
+  "scripts": {
+    "api:start": "npm -w apps/api run start",
+    "prepare": "husky",
+    "start": "npm-run-all -p api:start ui:start",
+    "ui:start": "npm -w apps/ui run start"
+  },
+  "devDependencies": {
+    "husky": "^9.1.6",
+    "lint-staged": "^15.2.10",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^3.3.3"
+  }
+}
