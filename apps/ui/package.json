@@ -1,0 +1,24 @@
+{
+  "name": "@cloudretail/ui",
+  "type": "module",
+  "scripts": {
+    "build": "vite build",
+    "lint": "eslint --fix .",
+    "start": "vite --clearScreen=false"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.16.0",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.4",
+    "dotenv-cli": "^7.4.4",
+    "eslint": "^9.16.0",
+    "eslint-plugin-import": "^2.31.0",
+    "jsdom": "^25.0.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "typescript": "^5.7.2",
+    "typescript-eslint": "^8.16.0",
+    "vite": "^6.0.1"
+  }
+}

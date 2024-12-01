@@ -1,0 +1,25 @@
+{
+  "name": "cloudretail",
+  "workspaces": [
+    "apps/*"
+  ],
+  "scripts": {
+    "docker:compose:down": "docker-compose -f apps/api/docker-compose.yml down",
+    "docker:compose:up": "docker-compose -f apps/api/docker-compose.yml up -d",
+    "lint": "npm-run-all --parallel ws:*:lint",
+    "start": "npm-run-all --parallel ws:*:start",
+    "ws:api:lint": "npm -w @cloudretail/api run lint",
+    "ws:api:start": "npm -w @cloudretail/api run start",
+    "ws:ui:lint": "npm -w @cloudretail/ui run lint",
+    "ws:ui:start": "npm -w @cloudretail/ui run start"
+  },
+  "devDependencies": {
+    "npm-run-all": "^4.1.5",
+    "prettier": "^3.4.1"
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true,
+    "trailingComma": "none"
+  }
+}
