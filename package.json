@@ -2,5 +2,11 @@
   "name": "cloudretail",
   "workspaces": [
     "apps/*"
-  ]
+  ],
+  "scripts": {
+    "format": "prettier --write ."
+  },
+  "devDependencies": {
+    "prettier": "^3.4.1"
+  }
 }
