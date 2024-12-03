@@ -2,6 +2,8 @@
   "name": "@cloudretail/api",
   "type": "module",
   "scripts": {
+    "docker:compose:up": "docker compose up -d",
+    "docker:compose:down": "docker compose down",
     "lint": "eslint --fix .",
     "start": "tsx watch --env-file .env src/index.ts"
   },
