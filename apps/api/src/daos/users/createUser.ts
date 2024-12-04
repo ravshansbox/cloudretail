@@ -1,23 +1,22 @@
 import { sql } from '@ts-safeql/sql-tag';
 import { DbClient } from '../../types';
+import { getRow } from '../../getRow';
 
-export const createUser = async (
+export const createUser = (
   client: DbClient,
-  values: {
-    username: string;
-    password: string;
-  },
+  values: { username: string; password: string },
 ) => {
-  const { rows } = await client.query<{
-    id: number;
-    username: string;
-    password: string;
-  }>(
-    sql`
-      insert into users (username, password)
-      values (${values.username}, ${values.password})
-      returning *
-    `,
+  return getRow(
+    client.query<{
+      id: number;
+      username: string;
+      password: string;
+    }>(
+      sql`
+        insert into users (username, password)
+        values (${values.username}, ${values.password})
+        returning *
+      `,
+    ),
   );
-  return rows[0];
 };
