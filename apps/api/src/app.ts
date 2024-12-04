@@ -7,10 +7,6 @@ export const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-app.get('/', (_request, response) => {
-  response.json({ message: 'Hello World!' });
-});
-
 export const registerRoute = <T, U>({
   method,
   path,
@@ -20,11 +16,13 @@ export const registerRoute = <T, U>({
   app[method](
     path,
     (request: Request<Record<string, string>, unknown, T>, response, next) => {
-      try {
-        request.body = inputSchema.parse(request.body);
-      } catch (error) {
-        next(error);
-        return;
+      if (inputSchema !== undefined) {
+        try {
+          request.body = inputSchema.parse(request.body);
+        } catch (error) {
+          next(error);
+          return;
+        }
       }
       handler({ request, response })
         .then((result) => {
@@ -34,3 +32,7 @@ export const registerRoute = <T, U>({
     },
   );
 };
+
+app.get('/', (_request, response) => {
+  response.json({ status: 'ok' });
+});

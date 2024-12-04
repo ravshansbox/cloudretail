@@ -11,7 +11,7 @@ export type HandlerParams<T> = {
 export type Route<T, U> = {
   method: HttpMethod;
   path: string;
-  inputSchema: Schema<T>;
+  inputSchema?: Schema<T>;
   handler: (params: HandlerParams<T>) => Promise<U>;
 };
 
