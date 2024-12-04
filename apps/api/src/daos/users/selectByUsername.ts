@@ -1,10 +1,11 @@
-import { pool } from '../../pool';
+import { DbClient } from '../../types';
+import { sql } from '@ts-safeql/sql-tag';
 
-export const selectByUsername = async (username: string) => {
-  const { rows } = await pool.query<{
+export const selectByUsername = async (client: DbClient, username: string) => {
+  const { rows } = await client.query<{
     id: number;
     username: string;
     password: string;
-  }>(`select * from users where username = $1`, [username]);
+  }>(sql`select * from users where username = ${username}`);
   return rows[0];
 };

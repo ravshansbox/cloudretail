@@ -1,16 +1,23 @@
-import { pool } from '../../pool';
+import { sql } from '@ts-safeql/sql-tag';
+import { DbClient } from '../../types';
 
-export const createUser = async (values: {
-  username: string;
-  password: string;
-}) => {
-  const { rows } = await pool.query<{
+export const createUser = async (
+  client: DbClient,
+  values: {
+    username: string;
+    password: string;
+  },
+) => {
+  const { rows } = await client.query<{
     id: number;
     username: string;
     password: string;
-  }>(`insert into users (username, password) values ($1, $2) returning *`, [
-    values.username,
-    values.password,
-  ]);
+  }>(
+    sql`
+      insert into users (username, password)
+      values (${values.username}, ${values.password})
+      returning *
+    `,
+  );
   return rows[0];
 };
