@@ -16,4 +16,16 @@ export default tseslint.config(
     files: ['**/*.{js,cjs,mjs}'],
     extends: [tseslint.configs.disableTypeChecked],
   },
+  {
+    rules: {
+      '@typescript-eslint/no-unused-vars': [
+        'warn',
+        {
+          argsIgnorePattern: '^_',
+          varsIgnorePattern: '^_',
+          caughtErrorsIgnorePattern: '^_',
+        },
+      ],
+    },
+  },
 );

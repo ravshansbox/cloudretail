@@ -17,6 +17,18 @@ export default tseslint.config(
     files: ['**/*.{js,cjs,mjs}'],
     extends: [tseslint.configs.disableTypeChecked],
   },
+  {
+    rules: {
+      '@typescript-eslint/no-unused-vars': [
+        'warn',
+        {
+          argsIgnorePattern: '^_',
+          varsIgnorePattern: '^_',
+          caughtErrorsIgnorePattern: '^_',
+        },
+      ],
+    },
+  },
   safeql.configs.connections({
     databaseUrl: 'postgres://postgres:postgres@localhost:5432/postgres',
     overrides: { types: { uuid: 'string' } },
