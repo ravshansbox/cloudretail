@@ -28,4 +28,7 @@ export default tseslint.config(
       ],
     },
   },
+  {
+    ignores: ['**/styled-system/**/*'],
+  },
 );
