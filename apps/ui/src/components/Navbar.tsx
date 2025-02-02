@@ -4,10 +4,7 @@ import { Button, NavLink } from './core';
 import { api } from '../api';
 import { useNavigate } from 'react-router';
 
-const links = [
-  { path: '/', label: 'Dashboard' },
-  { path: '/login', label: 'Login' },
-];
+const links = [{ path: '/', label: 'Dashboard' }];
 
 export const Navbar = () => {
   const navigate = useNavigate();
