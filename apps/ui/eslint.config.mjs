@@ -31,5 +31,13 @@ export default tseslint.config(
       ],
     },
   },
+  {
+    files: ['src/**/*.{spec,test}.{ts,tsx}'],
+    rules: {
+      '@typescript-eslint/no-unsafe-argument': 'off',
+      '@typescript-eslint/no-unsafe-assignment': 'off',
+      '@typescript-eslint/no-unsafe-member-access': 'off',
+    },
+  },
   eslintPluginPrettierRecommended,
 );
