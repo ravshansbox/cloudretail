@@ -31,7 +31,5 @@ export default async (project: TestProject) => {
         error ? reject(error) : resolve();
       });
     });
-    await pool.query('delete from tokens');
-    await pool.query('delete from users');
   };
 };
